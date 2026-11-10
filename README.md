@@ -1,75 +1,132 @@
-# React + TypeScript + Vite
+# 💜 Planej.ai — Planejamento Financeiro Inteligente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **Planej.ai** é uma aplicação web de planejamento financeiro que utiliza Inteligência Artificial para ajudar pessoas a compreender sua situação financeira, avaliar objetivos e encontrar possibilidades para organizar melhor seu dinheiro.
 
-Currently, two official plugins are available:
+Através de uma simulação financeira, a aplicação utiliza a API do Google Gemini para gerar análises personalizadas, diagnósticos e sugestões de organização financeira.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Funcionalidades
 
-## React Compiler
+- **Simulação financeira:** preenchimento de informações para avaliar objetivos e condições financeiras.
+- **Análise com IA:** geração de diagnósticos e recomendações utilizando Google Gemini.
+- **Viabilidade financeira:** avaliação do planejamento e identificação de possíveis ajustes.
+- **Sugestões personalizadas:** recomendações para organização financeira e possibilidades de renda extra.
+- **Investimentos:** sugestões introdutórias relacionadas ao planejamento financeiro.
+- **Histórico de simulações:** armazenamento local das simulações realizadas.
+- **Tema claro e escuro:** interface com suporte aos dois temas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tecnologias utilizadas
 
-## Expanding the ESLint configuration
+| Tecnologia | Aplicação |
+|---|---|
+| React | Construção da interface |
+| TypeScript | Tipagem e organização do código |
+| Vite | Ambiente de desenvolvimento |
+| React Router | Navegação entre páginas |
+| Lucide React | Ícones |
+| Google Gemini API | Inteligência Artificial |
+| LocalStorage | Persistência local de dados |
+| CSS | Estilização da aplicação |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📂 Estrutura do projeto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+planejai/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── features/
+│   │   ├── layout/
+│   │   └── shared/
+│   ├── context/
+│   ├── data/
+│   ├── hooks/
+│   ├── pages/
+│   ├── services/
+│   ├── styles/
+│   ├── utils/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── router.tsx
+├── .env.example
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Como executar o projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Pré-requisitos
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js instalado.
+- npm instalado.
+- Chave de API do Google Gemini.
 
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/Brtkviktor/Planej.ai.git
 ```
+
+### 2. Entre na pasta do projeto
+
+```bash
+cd Planej.ai
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Configure a variável de ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+VITE_GEMINI_API_KEY=sua_chave_aqui
+```
+
+Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/apikey).
+
+### 5. Execute a aplicação
+
+```bash
+npm run dev
+```
+
+A aplicação estará disponível no endereço informado pelo Vite, normalmente:
+
+```text
+http://localhost:5173
+```
+
+## 🔐 Segurança
+
+O arquivo `.env` contém informações sensíveis e não deve ser enviado ao GitHub.
+
+**Importante:** como a integração atual utiliza Vite no frontend, variáveis com prefixo `VITE_` ficam acessíveis no navegador. Para uma implantação em produção, recomenda-se migrar a comunicação com o Gemini para um backend, protegendo a chave de API.
+
+## 🎯 Objetivo do projeto
+
+O Planej.ai foi desenvolvido como um projeto de aprendizado e portfólio, com o objetivo de praticar desenvolvimento frontend, integração com Inteligência Artificial, organização de componentes, gerenciamento de estado e persistência de dados.
+
+## 📌 Status
+
+**Em desenvolvimento.**
+
+Novas funcionalidades, melhorias de interface e aprimoramentos na integração com Inteligência Artificial estão planejados.
+
+## 👨‍💻 Desenvolvedor
+
+Desenvolvido por **Brtkviktor**.
+
+- GitHub: [@Brtkviktor](https://github.com/Brtkviktor)
+- Repositório: [Planej.ai](https://github.com/Brtkviktor/Planej.ai)
+
+---
+
+*Planej.ai — Organize hoje, planeje o amanhã.* 💜
+
+> As análises e sugestões geradas pela inteligência artificial têm finalidade informativa e educacional, não substituindo a orientação de um profissional financeiro.
